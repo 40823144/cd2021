@@ -64,8 +64,28 @@
 <p>紅：稜形軸</p>
 <p>藍：球形軸</p>
 <p><img alt="" height="385" src="/images/joint.png" width="547"/></p>
-<p></p>
-<h1>heroku</h1>
+<h1>ssh</h1>
+<p>製作鑰匙的指令</p>
+<p><span style="color: #ff0000;"><code class="dart plain">ssh-keygen -t rsa -b 4096 -C </code><code class="dart string">"使用者學號"</code></span></p>
+<p><img caption="false" height="400" src="/images/SSH.png" width="769"/></p>
+<p>把製作好的<span>id_rsa 與 id_rsa.pub 利用 puttygen 轉換成 private key 與 public key</span></p>
+<p><span><img alt="" height="62" src="/images/SSH2.png" width="767"/></span></p>
+<p><span><img caption="false" height="364" src="/images/SSH3.png" width="800"/></span></p>
+<p><span><img alt="" height="31" src="/images/ssh4.png" width="755"/></span></p>
+<p><span>修改start.bat的設定</span></p>
+<p><span><img alt="" height="916" src="/images/ssh6.png" width="701"/></span></p>
+<p><span>將id_sra上的密碼丟到github setting裡的創建new sshkey</span></p>
+<p><span><img caption="false" height="406" src="/images/ssh5.png" width="800"/></span></p>
+<p><span>修改Y:\tmp\cad2020\.git裡的config設定</span></p>
+<p><span><img alt="" height="916" src="/images/ssh7.png" width="702"/></span></p>
+<p><span></span>到putty.exe的session設定github.com</p>
+<p><span><img alt="" height="542" src="/images/ssh8.png" width="600"/></span></p>
+<p><span></span>設定Proxy (隨身系統可不用</p>
+<p>設定SSH裡的Auth讀取鑰匙.ppk的位置</p>
+<p><img alt="" height="542" src="/images/ssh10.png" width="600"/></p>
+<p>之後便可以不輸入帳號密碼進行git push</p>
+<p><img alt="" height="577" src="/images/sshend.png" width="1100"/></p>
+<p></p><h1>heroku</h1>
 <p>步驟1.進入<a href="https://heroku.com">https://heroku.com</a>建立帳號。</p>
 <p>步驟2.建立heroku app。</p>
 <p>步驟3.下載<span>Heroku CLI。</span></p>
