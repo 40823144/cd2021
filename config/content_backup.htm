@@ -72,6 +72,7 @@
 <p><img alt="" height="700" src="/images/立體圖2.jpg" width="800"/></p>
 <h1>W10~W17</h1>
 <h2>RoboDK</h2>
+<p>單純的改了一 些數字，讓它可以來回。</p>
 <p><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/sY0XpQhpivs" width="560"></iframe></p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># KMOLab Portable RoboDK pick and place
 from robolink import *    # API to communicate with robodk
@@ -259,8 +260,109 @@ while idTake &gt;= 0:
     robot.MoveJ(target_app_frame)
 
 # Move home when the robot finishes
-robot.MoveJ([0,0,0,0,10,-200])</pre>
-<p></p><h2>Task</h2>
+robot.MoveJ([0,0,0,0,10,-200])
+
+
+
+# Gather required items from the station tree
+robot = RDK.Item('Fanuc M-710iC/50')
+robot_tools = robot.Childs()
+#robottool = RDK.Item('MainTool')
+frame1 = RDK.Item('Table 1')
+frame2 = RDK.Item('Table 2')
+
+
+
+# Call custom procedure to remove old objects
+cleanup_balls([frame1 , frame2])
+
+
+# Make a list of positions to place the objects
+frame1_list = pyramid_calc(4)
+frame2_list = pyramid_calc(4)
+
+# Programmatically place the objects with a custom-made procedure
+balls_setup(frame2, frame2_list)
+
+# Delete previously generated tools
+for tool in robot_tools:
+    if tool.Name().startswith('TCP'):
+        tool.Delete()
+        
+# Calculate tool frames for the suction cup tool of 6 suction cups
+TCP_list = []
+for i in range(nTCPs):
+    TCPi_pose = transl(0,0,100)*rotz((360/nTCPs)*i*pi/180)*transl(125,0,0)*roty(pi/2)
+    TCPi = robot.AddTool(TCPi_pose, 'TCP %i' % (i+1))
+    TCP_list.append(TCPi)
+
+TCP_0 = TCP_list[0]
+
+
+
+# Move balls    
+robot.setPoseTool(TCP_list[0])
+nballs_frame2 = len(frame2_list)
+nballs_frame1 = len(frame1_list)
+idTake = nballs_frame2 - 1
+idLeave = 0
+idTCP = 0
+target_app_frame = transl(2*BALL_DIAMETER, 2*BALL_DIAMETER, 4*BALL_DIAMETER)*roty(pi)*transl(0,0,-APPROACH)
+
+while idTake &gt;= 0:
+    # ------------------------------------------------------------------
+    # first priority: grab as many balls as possible
+    # the tool is empty at this point, so take as many balls as possible (up to a maximum of 6 -&gt; nTCPs)
+    ntake = min(nTCPs, idTake + 1)
+
+    # approach to frame 1
+    robot.setPoseFrame(frame2)
+    robot.setPoseTool(TCP_0)
+    robot.MoveJ([0,0,0,0,10,-200])
+    robot.MoveJ(target_app_frame)
+
+    # grab ntake balls from frame 1
+    for i in range(ntake):
+        TCPi = TCP_list[i]
+        robot.setPoseTool(TCPi)
+        # calculate target wrt frame1: rotation about Y is needed since Z and X axis are inverted
+        target = transl(frame2_list[idTake])*roty(pi)*rotx(30*pi/180)
+        target_app = target*transl(0,0,-APPROACH)
+        idTake = idTake - 1        
+        robot.MoveL(target_app)
+        robot.MoveL(target)
+        TCP_On(TCPi, i)
+        robot.MoveL(target_app)
+ 
+    # ------------------------------------------------------------------
+    # second priority: unload the tool     
+    # approach to frame 2 and place the tool balls into table 2
+    robot.setPoseTool(TCP_0)
+    robot.MoveJ(target_app_frame)
+    robot.MoveJ([0,0,0,0,10,-200])
+    robot.setPoseFrame(frame1)    
+    robot.MoveJ(target_app_frame)
+    for i in range(ntake):
+        TCPi = TCP_list[i]
+        robot.setPoseTool(TCPi)
+        if idLeave &gt; nballs_frame2-1:
+            raise Exception("No room left to place objects in Table 2")
+        
+        # calculate target wrt frame1: rotation of 180 about Y is needed since Z and X axis are inverted
+        target = transl(frame1_list[idLeave])*roty(pi)*rotx(30*pi/180)
+        target_app = target*transl(0,0,-APPROACH)
+        idLeave = idLeave + 1        
+        robot.MoveL(target_app)
+        robot.MoveL(target)
+        TCP_Off(TCPi, i, frame2)
+        robot.MoveL(target_app)
+
+    robot.MoveJ(target_app_frame)
+
+# Move home when the robot finishes
+robot.MoveJ([0,0,0,0,10,-200])
+</pre>
+<p><br/><br/></p><h2>Task</h2>
 <p>完成老師CD2021中的Task任務。</p>
 <h3>task1</h3>
 <p>參考自40823131的<a href="https://40823131.github.io/cd2021/content/task1.html">task1</a></p>
@@ -345,7 +447,12 @@ for i in range(len(data)):#設i迴圈的次數為data的長度
 <p>40823117＿site:<a href="https://40823117.github.io/cd2021">40823117</a>|repo:<a href="https://github.com/40823117/cd2021">40823117</a></p>
 <p>40823129＿site:<a href="https://40823129.github.io/cd2021">40823129</a>|repo:<a href="https://github.com/40823129/cd2021">40823129</a></p>
 <p>40823149＿site:<a href="https://40823149.github.io/cd2021">40823149</a>|repo:<a href="https://github.com/40823149/cd2021">40823149</a></p>
-<p>40823153＿site:<a href="https://40823153.github.io/cd2021">40823153</a>|repo:<a href="https://github.com/40823153/cd2021">40823153</a></p><h3>task2</h3><h1>英文學習中</h1>
+<p>40823153＿site:<a href="https://40823153.github.io/cd2021">40823153</a>|repo:<a href="https://github.com/40823153/cd2021">40823153</a></p><h3>task2</h3>
+<p>參考老師的bubbleRob模板並於Stage2上進行remoteAPI的模擬。</p>
+<p><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/FOt8QA5ReCo" width="560"></iframe></p>
+<p><a href="https://drive.google.com/file/d/1GGBcXba0aOhc9D_rL-ZdC1fKSc_8pPC6/view?usp=sharing">stage2-ttt檔</a></p>
+<p></p>
+<p><img alt="" height="457" src="/images/task2.png" width="800"/></p><h1>英文學習中</h1>
 <p>API = Application Programming Interface 應用程式介面</p>
 <p>simulator 模擬器</p>
 <p>hierarchy 層次結構</p>

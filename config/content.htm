@@ -447,7 +447,35 @@ for i in range(len(data)):#設i迴圈的次數為data的長度
 <p>40823117＿site:<a href="https://40823117.github.io/cd2021">40823117</a>|repo:<a href="https://github.com/40823117/cd2021">40823117</a></p>
 <p>40823129＿site:<a href="https://40823129.github.io/cd2021">40823129</a>|repo:<a href="https://github.com/40823129/cd2021">40823129</a></p>
 <p>40823149＿site:<a href="https://40823149.github.io/cd2021">40823149</a>|repo:<a href="https://github.com/40823149/cd2021">40823149</a></p>
-<p>40823153＿site:<a href="https://40823153.github.io/cd2021">40823153</a>|repo:<a href="https://github.com/40823153/cd2021">40823153</a></p><h3>task2</h3><h1>英文學習中</h1>
+<p>40823153＿site:<a href="https://40823153.github.io/cd2021">40823153</a>|repo:<a href="https://github.com/40823153/cd2021">40823153</a></p><h3>task2</h3>
+<p>參考老師的bubbleRob模板並於Stage2上進行remoteAPI的模擬。</p>
+<p><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/FOt8QA5ReCo" width="560"></iframe></p>
+<p><a href="https://drive.google.com/file/d/1GGBcXba0aOhc9D_rL-ZdC1fKSc_8pPC6/view?usp=sharing">stage2-ttt檔</a></p>
+<p><span>remoteAPI程式碼</span></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">import sim as vrep
+import sys
+# child threaded script: 
+#simExtRemoteApiStart(19999)
+ 
+vrep.simxFinish(-1)
+ 
+clientID = vrep.simxStart('127.0.0.1', 19999, True, True, 5000, 5)
+ 
+if clientID!= -1:
+    print("Connected to remote server")
+else:
+    print('Connection not successful')
+    sys.exit('Could not connect')
+ 
+errorCode,Revolute_joint=vrep.simxGetObjectHandle(clientID,'Revolute_joint',vrep.simx_opmode_oneshot_wait)
+ 
+ 
+if errorCode == -1:
+    print('Can not find left or right motor')
+    sys.exit()
+ 
+errorCode=vrep.simxSetJointTargetVelocity(clientID,Revolute_joint,3, vrep.simx_opmode_oneshot_wait)</pre>
+<p></p><h1>英文學習中</h1>
 <p>API = Application Programming Interface 應用程式介面</p>
 <p>simulator 模擬器</p>
 <p>hierarchy 層次結構</p>
