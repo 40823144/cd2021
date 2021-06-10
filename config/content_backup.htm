@@ -70,13 +70,108 @@
 <p><img alt="" height="590" src="/images/cad零件表.jpg" width="859"/></p>
 <p>立體圖：</p>
 <p><img alt="" height="700" src="/images/立體圖2.jpg" width="800"/></p>
-<p></p><h1>英文學習中</h1>
+<h1>W10~W17</h1>
+<h2>Task</h2>
+<p>完成老師CD2021中的Task任務。</p>
+<h3>task1</h3>
+<p>參考自4023131的<a href="https://40823131.github.io/cd2021/content/task1.html">task1</a></p>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false"># open file, default is read mode, since txt content no chinese char4
+# no encoding = "UTF-08" is needed
+with open("stage3_2a.txt") as fh: #打開"stage3_2a.txt檔案並命名為fh
+    # readlines will read into the whole line and put into list format 23
+    # has \n at the end of each line 13
+    #讀取 fh檔案並當作data
+    data = fh.readlines()
+    #修改錯誤的學號
+    data = [a.replace('4823122','40823122') for a in data]
+    #去除組別空白部分
+    data = [b.replace('\t\t\t\t','') for b in data]
+
+    #print(data)#印出data
+#print(len(data))
+for i in range(len(data)):#設i迴圈的次數為data的長度
+    #print(data)
+    group = data[i].rstrip("\n").split("\t")#設group為取data的次數i消除\n並且以\t分割數列
+
+    #print(group)
+    print('&lt;p&gt;'+group[0]+' ＿ &lt;a href="https://'+group[1]+'.github.io/'+group[0]+'"&gt;site&lt;/a&gt; | &lt;a href="https://github.com/'+group[1]+'/'+group[0]+'"&gt;repo&lt;/a&gt;&lt;/p&gt;')
+#印出group字串
+ 
+  
+    for g in range(2,18,2):#設g迴圈的範圍從第3項開始+2到第18項
+        try:#try...except 可跳過讀取不到的資料
+            print('&lt;p&gt;'+group[g]+'＿site:'+'&lt;a href="https://'+group[g]+'.github.io/cd2021'+'"&gt;'+group[g]+'&lt;/a&gt;'+'|repo:'+'&lt;a href="https://github.com/'+group[g]+'/cd2021'+'"&gt;'+group[g]+'&lt;/a&gt;&lt;/p&gt;')
+            #印出group字串
+   
+        except:
+            continue#返回迴圈</pre>
+<p>stage3_ag1 ＿ <a href="https://40823131.github.io/stage3_ag1">site</a> | <a href="https://github.com/40823131/stage3_ag1">repo</a></p>
+<p>40823131＿site:<a href="https://40823131.github.io/cd2021">40823131</a>|repo:<a href="https://github.com/40823131/cd2021">40823131</a></p>
+<p>a40823112＿site:<a href="https://a40823112.github.io/cd2021">a40823112</a>|repo:<a href="https://github.com/a40823112/cd2021">a40823112</a></p>
+<p>40823123＿site:<a href="https://40823123.github.io/cd2021">40823123</a>|repo:<a href="https://github.com/40823123/cd2021">40823123</a></p>
+<p>40823145＿site:<a href="https://40823145.github.io/cd2021">40823145</a>|repo:<a href="https://github.com/40823145/cd2021">40823145</a></p>
+<p>40823136＿site:<a href="https://40823136.github.io/cd2021">40823136</a>|repo:<a href="https://github.com/40823136/cd2021">40823136</a></p>
+<p>40823109＿site:<a href="https://40823109.github.io/cd2021">40823109</a>|repo:<a href="https://github.com/40823109/cd2021">40823109</a></p>
+<p>40823116＿site:<a href="https://40823116.github.io/cd2021">40823116</a>|repo:<a href="https://github.com/40823116/cd2021">40823116</a></p>
+<p>40823108＿site:<a href="https://40823108.github.io/cd2021">40823108</a>|repo:<a href="https://github.com/40823108/cd2021">40823108</a></p>
+<p>stage3_ag2 ＿ <a href="https://40823151.github.io/stage3_ag2">site</a> | <a href="https://github.com/40823151/stage3_ag2">repo</a></p>
+<p>40823151＿site:<a href="https://40823151.github.io/cd2021">40823151</a>|repo:<a href="https://github.com/40823151/cd2021">40823151</a></p>
+<p>40623121＿site:<a href="https://40623121.github.io/cd2021">40623121</a>|repo:<a href="https://github.com/40623121/cd2021">40623121</a></p>
+<p>40871106＿site:<a href="https://40871106.github.io/cd2021">40871106</a>|repo:<a href="https://github.com/40871106/cd2021">40871106</a></p>
+<p>40823102＿site:<a href="https://40823102.github.io/cd2021">40823102</a>|repo:<a href="https://github.com/40823102/cd2021">40823102</a></p>
+<p>40823104＿site:<a href="https://40823104.github.io/cd2021">40823104</a>|repo:<a href="https://github.com/40823104/cd2021">40823104</a></p>
+<p>40823106＿site:<a href="https://40823106.github.io/cd2021">40823106</a>|repo:<a href="https://github.com/40823106/cd2021">40823106</a></p>
+<p>40823101＿site:<a href="https://40823101.github.io/cd2021">40823101</a>|repo:<a href="https://github.com/40823101/cd2021">40823101</a></p>
+<p>40823132＿site:<a href="https://40823132.github.io/cd2021">40823132</a>|repo:<a href="https://github.com/40823132/cd2021">40823132</a></p>
+<p>stage3_ag3 ＿ <a href="https://40823119.github.io/stage3_ag3">site</a> | <a href="https://github.com/40823119/stage3_ag3">repo</a></p>
+<p>40823119＿site:<a href="https://40823119.github.io/cd2021">40823119</a>|repo:<a href="https://github.com/40823119/cd2021">40823119</a></p>
+<p>40823150＿site:<a href="https://40823150.github.io/cd2021">40823150</a>|repo:<a href="https://github.com/40823150/cd2021">40823150</a></p>
+<p>40823103＿site:<a href="https://40823103.github.io/cd2021">40823103</a>|repo:<a href="https://github.com/40823103/cd2021">40823103</a></p>
+<p>40823107＿site:<a href="https://40823107.github.io/cd2021">40823107</a>|repo:<a href="https://github.com/40823107/cd2021">40823107</a></p>
+<p>40523252＿site:<a href="https://40523252.github.io/cd2021">40523252</a>|repo:<a href="https://github.com/40523252/cd2021">40523252</a></p>
+<p>40823154＿site:<a href="https://40823154.github.io/cd2021">40823154</a>|repo:<a href="https://github.com/40823154/cd2021">40823154</a></p>
+<p>stage3_ag4 ＿ <a href="https://40823142.github.io/stage3_ag4">site</a> | <a href="https://github.com/40823142/stage3_ag4">repo</a></p>
+<p>40823142＿site:<a href="https://40823142.github.io/cd2021">40823142</a>|repo:<a href="https://github.com/40823142/cd2021">40823142</a></p>
+<p>40823144＿site:<a href="https://40823144.github.io/cd2021">40823144</a>|repo:<a href="https://github.com/40823144/cd2021">40823144</a></p>
+<p>40823127＿site:<a href="https://40823127.github.io/cd2021">40823127</a>|repo:<a href="https://github.com/40823127/cd2021">40823127</a></p>
+<p>40823148＿site:<a href="https://40823148.github.io/cd2021">40823148</a>|repo:<a href="https://github.com/40823148/cd2021">40823148</a></p>
+<p>40823121＿site:<a href="https://40823121.github.io/cd2021">40823121</a>|repo:<a href="https://github.com/40823121/cd2021">40823121</a></p>
+<p>40823135＿site:<a href="https://40823135.github.io/cd2021">40823135</a>|repo:<a href="https://github.com/40823135/cd2021">40823135</a></p>
+<p>40823114＿site:<a href="https://40823114.github.io/cd2021">40823114</a>|repo:<a href="https://github.com/40823114/cd2021">40823114</a></p>
+<p>40823146＿site:<a href="https://40823146.github.io/cd2021">40823146</a>|repo:<a href="https://github.com/40823146/cd2021">40823146</a></p>
+<p>stage3_ag5 ＿ <a href="https://40823111.github.io/stage3_ag5">site</a> | <a href="https://github.com/40823111/stage3_ag5">repo</a></p>
+<p>40823111＿site:<a href="https://40823111.github.io/cd2021">40823111</a>|repo:<a href="https://github.com/40823111/cd2021">40823111</a></p>
+<p>40823115＿site:<a href="https://40823115.github.io/cd2021">40823115</a>|repo:<a href="https://github.com/40823115/cd2021">40823115</a></p>
+<p>40823128＿site:<a href="https://40823128.github.io/cd2021">40823128</a>|repo:<a href="https://github.com/40823128/cd2021">40823128</a></p>
+<p>40823120＿site:<a href="https://40823120.github.io/cd2021">40823120</a>|repo:<a href="https://github.com/40823120/cd2021">40823120</a></p>
+<p>40823140＿site:<a href="https://40823140.github.io/cd2021">40823140</a>|repo:<a href="https://github.com/40823140/cd2021">40823140</a></p>
+<p>40823124＿site:<a href="https://40823124.github.io/cd2021">40823124</a>|repo:<a href="https://github.com/40823124/cd2021">40823124</a></p>
+<p>40823139＿site:<a href="https://40823139.github.io/cd2021">40823139</a>|repo:<a href="https://github.com/40823139/cd2021">40823139</a></p>
+<p>40823126＿site:<a href="https://40823126.github.io/cd2021">40823126</a>|repo:<a href="https://github.com/40823126/cd2021">40823126</a></p>
+<p>stage3_ag6 ＿ <a href="https://40823152.github.io/stage3_ag6">site</a> | <a href="https://github.com/40823152/stage3_ag6">repo</a></p>
+<p>40823152＿site:<a href="https://40823152.github.io/cd2021">40823152</a>|repo:<a href="https://github.com/40823152/cd2021">40823152</a></p>
+<p>40823110＿site:<a href="https://40823110.github.io/cd2021">40823110</a>|repo:<a href="https://github.com/40823110/cd2021">40823110</a></p>
+<p>40823122＿site:<a href="https://40823122.github.io/cd2021">40823122</a>|repo:<a href="https://github.com/40823122/cd2021">40823122</a></p>
+<p>40823125＿site:<a href="https://40823125.github.io/cd2021">40823125</a>|repo:<a href="https://github.com/40823125/cd2021">40823125</a></p>
+<p>40823117＿site:<a href="https://40823117.github.io/cd2021">40823117</a>|repo:<a href="https://github.com/40823117/cd2021">40823117</a></p>
+<p>40823129＿site:<a href="https://40823129.github.io/cd2021">40823129</a>|repo:<a href="https://github.com/40823129/cd2021">40823129</a></p>
+<p>40823149＿site:<a href="https://40823149.github.io/cd2021">40823149</a>|repo:<a href="https://github.com/40823149/cd2021">40823149</a></p>
+<p>40823153＿site:<a href="https://40823153.github.io/cd2021">40823153</a>|repo:<a href="https://github.com/40823153/cd2021">40823153</a></p><h3>task2</h3><h1>英文學習中</h1>
 <p>API = Application Programming Interface 應用程式介面</p>
 <p>simulator 模擬器</p>
-<p>hierarchy 等級制度</p>
+<p>hierarchy 層次結構</p>
 <p>components 部件</p>
 <p>assume 假設</p>
 <p>programming 程式設計</p>
+<p>rotation 旋轉</p>
+<p>orientation 方向</p>
+<p>reference 參考</p>
+<p>typically 通常情況下</p>
+<p>establish 建立</p>
+<p>serial 串行</p>
+<p>structurs 結構</p>
+<p>geometries 幾何圖形</p>
+<p>collision 碰撞</p>
 <p></p><h1>CoppeliaSim</h1>
 <p>深知自己對CoppeliaSim的不熟悉故開始學習</p>
 <p><a href="https://www.youtube.com/watch?v=PwGY8PxQOXY&amp;list=PLjzuoBhdtaXOoqkJUqhYQletLLnJP8vjZ">學習處</a></p>
