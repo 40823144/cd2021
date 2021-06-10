@@ -1,0 +1,477 @@
+<!DOCTYPE html><html>
+        <head>
+        <title>CMSiMDE</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700,900" rel="stylesheet">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/bootstrap.min.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/magnific-popup.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/jquery-ui.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/owl.carousel.min.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/owl.theme.default.min.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/bootstrap-datepicker.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/flaticon/font/flaticon.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/aos.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/style.css">
+        <link rel="shortcut icon" href="./../cmsimde/static/favicons.png">
+        
+        <style type='text/css'>
+            .site-section {
+            background-color: #FFFF;
+            padding: 40px 40px;
+            }
+            body > div > div.dropdown.open {
+                display: block;
+            }
+        </style>
+    
+        <!-- <script src="./../cmsimde/static/jquery.js"></script> -->
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+        <script src="../cmsimde/static/chimper/js/jquery-3.3.1.min.js"></script>
+        <link rel="stylesheet" href="./../cmsimde/static/tipuesearch/css/normalize.min.css">
+        <script src="./../cmsimde/static/tipuesearch/tipuesearch_set.js"></script>
+        <script src="tipuesearch_content.js"></script>
+        <link rel="stylesheet" href="./../cmsimde/static/tipuesearch/css/tipuesearch.css">
+        <script src="./../cmsimde/static/tipuesearch/tipuesearch.js"></script>
+        <script>
+            /* original tipuesearch
+            $(document).ready(function() {
+                 $('#tipue_search_input').tipuesearch();
+            });
+            */
+            // customed doSearch
+            function doSearch() {
+                $('#tipue_search_input').tipuesearch({
+                    newWindow: true, 
+                    minimumLength: 2,
+                    wholeWords: false, // for search 中文
+                });
+            }
+            $(document).ready(doSearch);
+        </script>
+        
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shCore.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushBash.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushDiff.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushJScript.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushJava.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushPython.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushSql.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushHaxe.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushXml.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushPhp.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushLua.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushCpp.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushCss.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushCSharp.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushDart.js"></script>
+<link type="text/css" rel="stylesheet" href="./../cmsimde/static/syntaxhighlighter/css/shCoreDefault.css"/>
+<script type="text/javascript">SyntaxHighlighter.all();</script>
+<!-- 暫時不用
+<script src="./../cmsimde/static/fengari-web.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/Cango-13v08-min.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/CangoAxes-4v01-min.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/gearUtils-05.js"></script>
+-->
+<!-- for Brython 暫時不用
+<script src="https://scrum-3.github.io/web/brython/brython.js"></script>
+<script src="https://scrum-3.github.io/web/brython/brython_stdlib.js"></script>
+-->
+<style>
+img.add_border {
+    border: 3px solid blue;
+}
+</style>
+
+</head>
+<body>
+<div class='container'><nav>
+        
+    <div class="site-wrap">
+
+    <div class="site-mobile-menu">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+    
+            <header class="site-navbar py-4 bg-white" role="banner">
+              <div class="container-fluid">
+                <div class="row align-items-center">
+                <h1>40823144 cd2021</h1>
+                <div class="pl-4">
+                    <form>
+                    <input type="text" placeholder="Search" name="q" id="tipue_search_input" pattern=".{2,}" title="At least 2 characters" required>
+                    </form>
+                </div>
+                  <!-- <div class="col-11 col-xl-2">
+                    <h1 class="mb-0 site-logo"><a href="index.html" class="text-black h2 mb-0">40823144 cd2021</a></h1> 
+                  </div>
+                  -->
+                  <div class="col-12 col-md-10 d-none d-xl-block">
+                    <nav class="site-navigation position-relative text-right" role="navigation">
+    <ul class='site-menu js-clone-nav mr-auto d-none d-lg-block'>
+                        <li class="active has-children"><a href="index.html">Home</a>
+                        <ul class="dropdown">
+                            <li><a href="sitemap.html">Site Map</a></li>
+                            <li><a href="./../reveal/index.html">reveal</a></li>
+                            <li><a href="./../blog/index.html">blog</a></li>
+                        </ul>
+                      </li>
+                     <li class='has-children'><a href='About.html'>About</a><ul class='dropdown'><li><a href='csave.html'>csave</a></li></ul><li><a href='CMSiMDE.html'>CMSiMDE</a><li class='has-children'><a href='W2~W4.html'>W2~W4</a><ul class='dropdown'><li><a href='組員.html'>組員</a><li><a href='W3.html'>W3</a></li></ul><li class='has-children'><a href='W5~W9.html'>W5~W9</a><ul class='dropdown'><li><a href='組員：.html'>組員：</a><li><a href='W5.html'>W5</a><li><a href='W6.html'>W6</a><li><a href='W7.html'>W7</a><li><a href='W8.html'>W8</a><li><a href='成品：.html'>成品：</a></li></ul><li class='has-children'><a href='W10~W17.html'>W10~W17</a><ul class='dropdown'><li><a href='RoboDK.html'>RoboDK</a><li class='has-children'><a href='Task.html'>Task</a><ul class='dropdown'><li><a href='task1.html'>task1</a><li><a href='task2.html'>task2</a></li></li></ul></ul><li><a href='英文學習中.html'>英文學習中</a><li><a href='CoppeliaSim.html'>CoppeliaSim</a><li><a href='ssh.html'>ssh</a><li><a href='heroku.html'>heroku</a><li><a href='DC推廣中心.html'>DC推廣中心</a></li>
+                      </ul>
+                </nav>
+              </div>
+              <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
+              </div>
+
+            </div>
+          </div>
+          
+        </header>
+    <div id="tipue_search_content">W10~W17 << <a href='W10~W17.html'>Previous</a> <a href='Task.html'>Next</a> >> Task<br /><h1>RoboDK</h1>
+<p>單純的改了一 些數字，讓它可以來回。</p>
+<p><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/sY0XpQhpivs" width="560"></iframe></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># KMOLab Portable RoboDK pick and place
+from robolink import *    # API to communicate with robodk
+from robodk import *      # robodk robotics toolbox
+
+# Setup global parameters
+BALL_DIAMETER = 100 # diameter of one ball
+APPROACH = 100      # approach distance to grab each part, in mm
+nTCPs = 6           # number of TCP's in the tool
+
+#----------------------------------------------
+# Function definitions
+
+def box_calc(BALLS_SIDE=4, BALLS_MAX=None):
+    """Calculate a list of points (ball center) as if the balls were stored in a box"""
+    if BALLS_MAX is None: BALLS_MAX = BALLS_SIDE**3
+    xyz_list = []
+    for h in range(BALLS_SIDE):
+        for i in range(BALLS_SIDE):
+            for j in range(BALLS_SIDE):
+                xyz_list = xyz_list + [[(i+0.5)*BALL_DIAMETER, (j+0.5)*BALL_DIAMETER, (h+0.5)*BALL_DIAMETER]]
+                if len(xyz_list) &gt;= BALLS_MAX:
+                    return xyz_list
+    return xyz_list
+
+def pyramid_calc(BALLS_SIDE=4):
+    """Calculate a list of points (ball center) as if the balls were place in a pyramid"""
+    #the number of balls can be calculated as: int(BALLS_SIDE*(BALLS_SIDE+1)*(2*BALLS_SIDE+1)/6)
+    BALL_DIAMETER = 100
+    xyz_list = []
+    sqrt2 = 2**(0.5)
+    for h in range(BALLS_SIDE):
+        for i in range(BALLS_SIDE-h):
+            for j in range(BALLS_SIDE-h):
+                height = h*BALL_DIAMETER/sqrt2 + BALL_DIAMETER/2
+                xyz_list = xyz_list + [[i*BALL_DIAMETER + (h+1)*BALL_DIAMETER*0.5, j*BALL_DIAMETER + (h+1)*BALL_DIAMETER*0.5, height]]
+    return xyz_list
+
+def balls_setup(frame, positions):
+    """Place a list of balls in a reference frame. The reference object (ball) must have been previously copied to the clipboard."""
+    nballs = len(positions)
+    step = 1.0/(nballs - 1)
+    for i in range(nballs):
+        newball = frame.Paste()
+        newball.setName('ball ' + str(i)) #set item name
+        newball.setPose(transl(positions[i])) #set item position with respect to parent
+        newball.setVisible(True, False) #make item visible but hide the reference frame
+        newball.Recolor([1-step*i, step*i, 0.2, 1]) #set RGBA color
+
+def cleanup_balls(parentnodes):
+    """Delete all child items whose name starts with \"ball\", from the provided list of parent items."""
+    todelete = []
+    for item in parentnodes:
+        todelete = todelete + item.Childs()
+
+    for item in todelete:
+        if item.Name().startswith('ball'):
+            item.Delete()
+
+def TCP_On(toolitem, tcp_id):
+    """Attach the closest object to the toolitem Htool pose,
+    furthermore, it will output appropriate function calls on the generated robot program (call to TCP_On)"""
+    toolitem.AttachClosest()
+    toolitem.RDK().RunMessage('Set air valve %i on' % (tcp_id+1))
+    toolitem.RDK().RunProgram('TCP_On(%i)' % (tcp_id+1));
+        
+def TCP_Off(toolitem, tcp_id, itemleave=0):
+    """Detaches the closest object attached to the toolitem Htool pose,
+    furthermore, it will output appropriate function calls on the generated robot program (call to TCP_Off)"""
+    toolitem.DetachAll(itemleave)
+    toolitem.RDK().RunMessage('Set air valve %i off' % (tcp_id+1))
+    toolitem.RDK().RunProgram('TCP_Off(%i)' % (tcp_id+1));
+
+
+#----------------------------------------------------------
+# The program starts here:
+
+# Any interaction with RoboDK must be done through RDK:
+RDK = Robolink(robodk_path="C:/robodk/bin/RoboDK.exe", robodk_ip='127.0.0.1')
+
+# Turn off automatic rendering (faster)
+RDK.Render(False)
+
+#RDK.Set_Simulation_Speed(500); # set the simulation speed
+
+# Gather required items from the station tree
+robot = RDK.Item('Fanuc M-710iC/50')
+robot_tools = robot.Childs()
+#robottool = RDK.Item('MainTool')
+frame1 = RDK.Item('Table 1')
+frame2 = RDK.Item('Table 2')
+
+# Copy a ball as an object (same as CTRL+C)
+ballref = RDK.Item('reference ball')
+ballref.Copy()
+
+# Run a pre-defined station program (in RoboDK) to replace the two tables
+prog_reset = RDK.Item('Replace objects')
+prog_reset.RunProgram()
+
+# Call custom procedure to remove old objects
+cleanup_balls([frame1, frame2])
+
+# Make a list of positions to place the objects
+frame1_list = pyramid_calc(4)
+frame2_list = pyramid_calc(4)
+
+# Programmatically place the objects with a custom-made procedure
+balls_setup(frame1, frame1_list)
+
+# Delete previously generated tools
+for tool in robot_tools:
+    if tool.Name().startswith('TCP'):
+        tool.Delete()
+        
+# Calculate tool frames for the suction cup tool of 6 suction cups
+TCP_list = []
+for i in range(nTCPs):
+    TCPi_pose = transl(0,0,100)*rotz((360/nTCPs)*i*pi/180)*transl(125,0,0)*roty(pi/2)
+    TCPi = robot.AddTool(TCPi_pose, 'TCP %i' % (i+1))
+    TCP_list.append(TCPi)
+
+TCP_0 = TCP_list[0]
+
+# Turn on automatic rendering
+RDK.Render(True)
+
+# Move balls    
+robot.setPoseTool(TCP_list[0])
+nballs_frame1 = len(frame1_list)
+nballs_frame2 = len(frame2_list)
+idTake = nballs_frame1 - 1
+idLeave = 0
+idTCP = 0
+target_app_frame = transl(2*BALL_DIAMETER, 2*BALL_DIAMETER, 4*BALL_DIAMETER)*roty(pi)*transl(0,0,-APPROACH)
+
+while idTake &gt;= 0:
+    # ------------------------------------------------------------------
+    # first priority: grab as many balls as possible
+    # the tool is empty at this point, so take as many balls as possible (up to a maximum of 6 -&gt; nTCPs)
+    ntake = min(nTCPs, idTake + 1)
+
+    # approach to frame 1
+    robot.setPoseFrame(frame1)
+    robot.setPoseTool(TCP_0)
+    robot.MoveJ([0,0,0,0,10,-200])
+    robot.MoveJ(target_app_frame)
+
+    # grab ntake balls from frame 1
+    for i in range(ntake):
+        TCPi = TCP_list[i]
+        robot.setPoseTool(TCPi)
+        # calculate target wrt frame1: rotation about Y is needed since Z and X axis are inverted
+        target = transl(frame1_list[idTake])*roty(pi)*rotx(30*pi/180)
+        target_app = target*transl(0,0,-APPROACH)
+        idTake = idTake - 1        
+        robot.MoveL(target_app)
+        robot.MoveL(target)
+        TCP_On(TCPi, i)
+        robot.MoveL(target_app)
+ 
+    # ------------------------------------------------------------------
+    # second priority: unload the tool     
+    # approach to frame 2 and place the tool balls into table 2
+    robot.setPoseTool(TCP_0)
+    robot.MoveJ(target_app_frame)
+    robot.MoveJ([0,0,0,0,10,-200])
+    robot.setPoseFrame(frame2)    
+    robot.MoveJ(target_app_frame)
+    for i in range(ntake):
+        TCPi = TCP_list[i]
+        robot.setPoseTool(TCPi)
+        if idLeave &gt; nballs_frame2-1:
+            raise Exception("No room left to place objects in Table 2")
+        
+        # calculate target wrt frame1: rotation of 180 about Y is needed since Z and X axis are inverted
+        target = transl(frame2_list[idLeave])*roty(pi)*rotx(30*pi/180)
+        target_app = target*transl(0,0,-APPROACH)
+        idLeave = idLeave + 1        
+        robot.MoveL(target_app)
+        robot.MoveL(target)
+        TCP_Off(TCPi, i, frame2)
+        robot.MoveL(target_app)
+
+    robot.MoveJ(target_app_frame)
+
+# Move home when the robot finishes
+robot.MoveJ([0,0,0,0,10,-200])
+
+
+
+# Gather required items from the station tree
+robot = RDK.Item('Fanuc M-710iC/50')
+robot_tools = robot.Childs()
+#robottool = RDK.Item('MainTool')
+frame1 = RDK.Item('Table 1')
+frame2 = RDK.Item('Table 2')
+
+
+
+# Call custom procedure to remove old objects
+cleanup_balls([frame1 , frame2])
+
+
+# Make a list of positions to place the objects
+frame1_list = pyramid_calc(4)
+frame2_list = pyramid_calc(4)
+
+# Programmatically place the objects with a custom-made procedure
+balls_setup(frame2, frame2_list)
+
+# Delete previously generated tools
+for tool in robot_tools:
+    if tool.Name().startswith('TCP'):
+        tool.Delete()
+        
+# Calculate tool frames for the suction cup tool of 6 suction cups
+TCP_list = []
+for i in range(nTCPs):
+    TCPi_pose = transl(0,0,100)*rotz((360/nTCPs)*i*pi/180)*transl(125,0,0)*roty(pi/2)
+    TCPi = robot.AddTool(TCPi_pose, 'TCP %i' % (i+1))
+    TCP_list.append(TCPi)
+
+TCP_0 = TCP_list[0]
+
+
+
+# Move balls    
+robot.setPoseTool(TCP_list[0])
+nballs_frame2 = len(frame2_list)
+nballs_frame1 = len(frame1_list)
+idTake = nballs_frame2 - 1
+idLeave = 0
+idTCP = 0
+target_app_frame = transl(2*BALL_DIAMETER, 2*BALL_DIAMETER, 4*BALL_DIAMETER)*roty(pi)*transl(0,0,-APPROACH)
+
+while idTake &gt;= 0:
+    # ------------------------------------------------------------------
+    # first priority: grab as many balls as possible
+    # the tool is empty at this point, so take as many balls as possible (up to a maximum of 6 -&gt; nTCPs)
+    ntake = min(nTCPs, idTake + 1)
+
+    # approach to frame 1
+    robot.setPoseFrame(frame2)
+    robot.setPoseTool(TCP_0)
+    robot.MoveJ([0,0,0,0,10,-200])
+    robot.MoveJ(target_app_frame)
+
+    # grab ntake balls from frame 1
+    for i in range(ntake):
+        TCPi = TCP_list[i]
+        robot.setPoseTool(TCPi)
+        # calculate target wrt frame1: rotation about Y is needed since Z and X axis are inverted
+        target = transl(frame2_list[idTake])*roty(pi)*rotx(30*pi/180)
+        target_app = target*transl(0,0,-APPROACH)
+        idTake = idTake - 1        
+        robot.MoveL(target_app)
+        robot.MoveL(target)
+        TCP_On(TCPi, i)
+        robot.MoveL(target_app)
+ 
+    # ------------------------------------------------------------------
+    # second priority: unload the tool     
+    # approach to frame 2 and place the tool balls into table 2
+    robot.setPoseTool(TCP_0)
+    robot.MoveJ(target_app_frame)
+    robot.MoveJ([0,0,0,0,10,-200])
+    robot.setPoseFrame(frame1)    
+    robot.MoveJ(target_app_frame)
+    for i in range(ntake):
+        TCPi = TCP_list[i]
+        robot.setPoseTool(TCPi)
+        if idLeave &gt; nballs_frame2-1:
+            raise Exception("No room left to place objects in Table 2")
+        
+        # calculate target wrt frame1: rotation of 180 about Y is needed since Z and X axis are inverted
+        target = transl(frame1_list[idLeave])*roty(pi)*rotx(30*pi/180)
+        target_app = target*transl(0,0,-APPROACH)
+        idLeave = idLeave + 1        
+        robot.MoveL(target_app)
+        robot.MoveL(target)
+        TCP_Off(TCPi, i, frame2)
+        robot.MoveL(target_app)
+
+    robot.MoveJ(target_app_frame)
+
+# Move home when the robot finishes
+robot.MoveJ([0,0,0,0,10,-200])
+</pre>
+<p><br/><br/></p><br />W10~W17 << <a href='W10~W17.html'>Previous</a> <a href='Task.html'>Next</a> >> Task</div>
+        
+    <!-- footer -->
+      <div class="container">
+        <div class="row pt-3 mx-auto">
+            <p>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            </p>
+        </div>
+      </div>
+    <!-- for footer -->
+    
+        </div> <!-- for site wrap -->
+            <!-- <script src="../cmsimde/static/chimper/js/jquery-3.3.1.min.js"></script> -->
+            <script src="../cmsimde/static/chimper/js/jquery-migrate-3.0.1.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery-ui.js"></script>
+            <script src="../cmsimde/static/chimper/js/popper.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/bootstrap.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/owl.carousel.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery.stellar.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery.countdown.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery.magnific-popup.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/bootstrap-datepicker.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/aos.js"></script>
+            <!--
+            <script src="../cmsimde/static/chimper/js/typed.js"></script>
+                    <script>
+                    var typed = new Typed('.typed-words', {
+                    strings: ["Web Apps"," WordPress"," Mobile Apps"],
+                    typeSpeed: 80,
+                    backSpeed: 80,
+                    backDelay: 4000,
+                    startDelay: 1000,
+                    loop: true,
+                    showCursor: true
+                    });
+                    </script>
+            -->
+            <script src="../cmsimde/static/chimper/js/main.js"></script>
+        
+<!-- 啟用 LaTeX equations 編輯 -->
+  <!-- <script>
+  MathJax = {
+    tex: {inlineMath: [['$', '$'], ['\(', '\)']]}
+  };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>-->
+    </body></html>
+        
