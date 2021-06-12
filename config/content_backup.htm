@@ -484,7 +484,91 @@ errorCode=vrep.simxSetJointTargetVelocity(clientID,Revolute_joint,3, vrep.simx_o
 <p><span>這個工具軟件姿勢是由兩個數字簡單描述的，相對於絕對坐標系的x和y。</span></p>
 <p><span>So, the problem here is that given x and y, we want to determine the joined angles, q1 and q2.</span></p>
 <p>所以，這裡的問題是當我們給定了x和y，要如呵得出我們想連接的角度，即q1和q2。</p>
-<p></p><h1>Stage3-ag4</h1>
+<p><span>The solution that we’re going to follow in this particular section is a geometric one.</span></p>
+<p><span>我們在這個特殊部分的解決方案須遵循其中一種幾何學。</span></p>
+<p><span>We’re going to start with a simple piece of construction.</span></p>
+<p><span>我們將從一個簡單的結構開始。</span></p>
+<p><span>We’re going to overlay the red triangle on top of our robot.</span></p>
+<p><span>我們假定將一個紅色的三角形覆蓋於我們的機構上。</span></p>
+<p><span>We know that the end point coordinate is x, y, so the vertical height of the triangle is y, the horizontal width is x.</span></p>
+<p><span>我們知道端點座標為x和y，因此三角形的垂直高度為y，水平寬度為x。</span></p>
+<p><span>And, using Pythagoras theorem, we can write r squared equals x squared plus y squared.</span></p>
+<p><span>並且，利用畢氏定理，我們可得出r的平方 = x的平方 + y的平方。</span></p>
+<p><span>So far, so easy.</span></p>
+<p><span>到目前為止，都很容易。</span></p>
+<p>Now, we’re going to look at this triangle highlighted here in red and we want to determine</p>
+<p>the angle alpha.</p>
+<p>現在我們來看此處用紅色突出顯示的三角形，並且確定出我們想要的角度α<span>。</span></p>
+<p><span>In order to do that, we need to use the cosine rule.</span></p>
+<p><span>為了做到這點，我們須使用餘弦定理。</span></p>
+<p><span>And, if you’re a little rusty on the cosine rule, here is a bit of a refresher.</span></p>
+<p><span>如果你對餘弦定理有點不熟悉，這裡有一些複習資料。</span></p>
+<p><span>We have an arbitrary triangle.</span></p>
+<p><span>我們這邊有一個任意的三角形。</span></p>
+<p><span>We don’t have any right angles in it and we’re going to label the length of this edge as A and the angle opposite that edge, we’re going to label as little a.</span></p>
+<p>三角形中沒有任何直角，我們把這條邊的長度標為A，與這條邊相對的角，我們標記為a。</p>
+<p><span>And, we do the same for this edge and this angle, and this edge and this angle.</span></p>
+<p><span>並且我們對另兩邊的邊及角做相同的事。</span></p>
+<p><span>So, all together, the sides are labelled capitals A, B and C, and the angles are labelled little a, little b, and little c.</span></p>
+<p><span>因此，所有的邊都被標記為A,B,C，而角都被標記為a,b,c。</span></p>
+<p><span>So, the cosine rule is simply this relationship here.</span></p>
+<p><span>餘弦定理在這裡便以此種簡單的關係表示。</span></p>
+<p><span>It’s a bit like Pythagoras’ theorem except for this extra term on the end with the cos a in it.</span></p>
+<p><span>它有點類似於畢氏定理，只是在最後多了一個帶cosa的項。</span></p>
+<p><span>Now, let’s apply the cosine rule to the particular triangle we looked at a moment ago.</span></p>
+<p>現在，讓我們把餘弦定理用於剛才看到的那個特定三角形上。</p>
+<p><span>It’s pretty straightforward to write down this particular relationship.</span></p>
+<p>可以很直接地寫下此種特殊關係。</p>
+<p><span>We can isolate the term cos alpha which gives us the angle alpha that we’re interested in.</span></p>
+<p><span>我們可以將我們所感興趣的α角求出，需將給定的cos <span class="Y2IQFc" lang="zh-TW">α</span><span>項分離出來。</span></span></p>
+<p><span>And, it’s defined in terms of the constant link lengths, A1 and A2 and the position of the end effector, x and y.</span></p>
+<p><span>且它是以恆定的連桿長度A1及A2以及末端執行器位置x與y來定義的。</span></p>
+<p><span>We can write this simple relationship between the angles alpha and q2.</span></p>
+<p><span>我們可以寫出此種於α角和q2之間的簡單關係。</span></p>
+<p><span>And, we know from the shape of the cosine function that cos of q2 must be equal to negative of cos alpha.</span></p>
+<p><span>而且，我們從餘弦函數的形狀得知，cos q2須等於 -cos <span>α。</span><span> </span></span></p>
+<p><span>This time, let’s just write an expression for the cosine of the joined angle q2.</span></p>
+<p><span>這次，讓我們只寫出關於連接角q2的餘弦表達式。</span></p>
+<p><span>Now, we’re going to draw yet another red triangle and we’re going apply some simple trigonometry here.</span></p>
+<p><span>現在，我們要再畫一個紅色三角形，並在這使用一些簡單的三角函數。</span></p>
+<p><span>If we know q2, then we know this length and this length of the red triangle.</span></p>
+<p>如果我們知道了q2，那我們便可得紅色三角形中q2的對邊長與鄰邊長。</p>
+<p><span>We can write this relationship for the sine of the joined angle q2.</span></p>
+<p><span>我們可以將這種關係寫為連接角q2的正弦。</span></p>
+<p><span>Now, we can consider this bigger triangle whose angle is beta and this side length of this triangle is given here in blue.</span></p>
+<p><span>現在我們可以考慮更大的三角形，其角度為β，這個三角形的邊長用藍色表示。</span></p>
+<p><span>And, the length of the other side of the triangle is this.</span></p>
+<p>且此三角形的另一邊長是這樣表示的。</p>
+<p><span>So, now we can write an expression for the angle beta in terms of these parameters here.</span></p>
+<p>所以，現在我們可以用這些參數來寫出一個β角的表達式。</p>
+<p><span>Going back to the red triangle that we drew earlier, we can establish a relationship between q1 and the angle beta.</span></p>
+<p><span>回到稍早前我們畫的紅色三角形，我們可以在q1和β角之間建立一種關係。</span></p>
+<p><span>Introduce yet another angle, this one gamma and we can write a relationship between the angle gamma and the tooltip coordinates x and y.</span></p>
+<p><span>引入另一個角度<span>γ，我們可寫出γ角和工具軟件座標x和y之間的關係。</span></span></p>
+<p><span>Now, we can write a simple relationship between the angles that we’ve constructed, gamma and beta and the joined angle we’re interested in which is q1.</span></p>
+<p><span>現在，我們可以用建構出的角度γ,β來寫出γ角和β角與欲求之連接角q1之間的簡單關係。</span></p>
+<p><span>And, the total relationship looks something like this.</span></p>
+<p><span>並且整體關係看起來像這樣。</span></p>
+<p><span>Quite a complex relationship, it gives us the angle of joined one, that’s q1 in terms of the end effector coordinates y and x, and a bunch of constants, a1 and a2, and it’s also a function of the second joint angle, q2.</span></p>
+<p><span></span></p>
+<p><span>So, let’s summarize what it is that we have derived here.</span></p>
+<p><span>We have an expression for the cosine of q2 and we have an expression for q1.</span></p>
+<p><span>Now, the cosine function is symmetrical about 0.</span></p>
+<p><span>So, if we know the value of the cosine of q2, then there are two possible solutions a positive angle and a negative angle.</span></p>
+<p><span>We’re going to explicitly choose the positive angle. Which means that I can write this expression here.</span></p>
+<p><span>And now, we have what we call the inverse kinematic solution for this two-link robot.</span></p>
+<p>We have an expression for the two joined angles, q1 and q2 in terms of the end effector pose x and y, and a bunch of constants.</p>
+<p><span>You notice that the two equations are not independent.</span></p>
+<p><span>The equation for q1, in fact, depends on the solution for q2.</span></p>
+<p><span>In this case, q2 is negative and we’re going to write the solution for q2 with a negative sign in front of the inverse cosine.</span></p>
+<p><span>Now, we need to solve for q1, so we’re going to introduce this particular red triangle, the angle beta that we solved previously, and the angle gamma which is defined in terms of y and x.</span></p>
+<p><span>Now, we write a slightly different relationship between q1, gamma and beta, different to what we had before.</span></p>
+<p><span>There’s a change of sign involved.</span></p>
+<p><span>Then, we can substitute all that previous equation and come up with this expression for q1.</span></p>
+<p><span>Again, there is a change of sign here.</span></p>
+<p><span>Previously, this was a negative sign.</span></p>
+<p><span>And, here in summary form is the solution for the inverse kinematics of our two-link robot when it is in this particular configuration, where q2 is negative.</span></p>
+<p><span>Let’s compare the two solutions, the case where q2 is positive and the case where q2 is negative.</span></p><h1>Stage3-ag4</h1>
 <p>題目依照Stage2繼續製作，期望它能站立行走，並可鍵盤控制。</p>
 <h2>更改1</h2>
 <p>覺得四隻腳支點不夠站不起來，故仿造老師的jansen_walker設計為8隻腳。</p>
