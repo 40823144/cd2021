@@ -476,12 +476,13 @@ if errorCode == -1:
 errorCode=vrep.simxSetJointTargetVelocity(clientID,Revolute_joint,3, vrep.simx_opmode_oneshot_wait)</pre>
 <h1>W15</h1>
 <p>影片字幕翻譯</p>
+<p>翻譯使用自<a href="https://www.deepl.com/translator">DeepL</a></p>
 <h4 class="title style-scope ytd-video-primary-info-renderer"><yt-formatted-string class="style-scope ytd-video-primary-info-renderer" force-default-style="">1.Inverse kinematics for a 2-joint robot arm using geometry</yt-formatted-string></h4>
 <p><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/IKOGwoJ2HLk" width="560"></iframe></p>
 <p><span>We saw this simple two-link robot in the previous lecture about forward kinematics.</span></p>
 <p><span>我們在先前關於正向運動學的講座中看到了這個簡單的雙連桿機構。</span></p>
 <p><span>The tooltip pose of the robot is simply described by two numbers, coordinates x and y is relative to the world coordinate system.</span></p>
-<p><span>這個工具軟件姿勢是由兩個數字簡單描述的，相對於絕對坐標系的x和y。</span></p>
+<p><span>這個工具軟件構成是由兩個數字簡單描述的，相對於絕對坐標系的x和y。</span></p>
 <p><span>So, the problem here is that given x and y, we want to determine the joined angles, q1 and q2.</span></p>
 <p>所以，這裡的問題是當我們給定了x和y，要如呵得出我們想連接的角度，即q1和q2。</p>
 <p><span>The solution that we’re going to follow in this particular section is a geometric one.</span></p>
@@ -564,18 +565,29 @@ errorCode=vrep.simxSetJointTargetVelocity(clientID,Revolute_joint,3, vrep.simx_o
 <p><span>And now, we have what we call the inverse kinematic solution for this two-link robot.</span></p>
 <p><span>現在我們有了解決雙連桿機構的逆向運動學函式。</span></p>
 <p>We have an expression for the two joined angles, q1 and q2 in terms of the end effector pose x and y, and a bunch of constants.</p>
-<p>我們有一個對連接角q1和q2的表達式，其與</p>
+<p>我們有一個對連接角q1和q2的表達式，其與末端執行器構成的x和y和一大堆常數有關。</p>
 <p><span>You notice that the two equations are not independent.</span></p>
+<p>你會注意到這兩個方程式並不獨立。</p>
 <p><span>The equation for q1, in fact, depends on the solution for q2.</span></p>
+<p><span>實際上，q1的方程式取決於q2的解。</span></p>
 <p><span>In this case, q2 is negative and we’re going to write the solution for q2 with a negative sign in front of the inverse cosine.</span></p>
+<p><span>在這種情況下，q2為負，因此我們要在反餘弦前加上負號來寫出q2的解。</span></p>
 <p><span>Now, we need to solve for q1, so we’re going to introduce this particular red triangle, the angle beta that we solved previously, and the angle gamma which is defined in terms of y and x.</span></p>
+<p><span>現在我們要求出q1的解，所以我們要引入這個特定的紅色三角形，並用之前得出的β角以及用y和x定義出的γ角。</span></p>
 <p><span>Now, we write a slightly different relationship between q1, gamma and beta, different to what we had before.</span></p>
+<p><span>現在，我們在q1、γ和β之間寫了一個與之前稍微不同的關係。</span></p>
 <p><span>There’s a change of sign involved.</span></p>
+<p><span>這涉及到符號的變化。</span></p>
 <p><span>Then, we can substitute all that previous equation and come up with this expression for q1.</span></p>
+<p><span>然後將先前所有的方程代入，可得出這個q1的表達式。</span></p>
 <p><span>Again, there is a change of sign here.</span></p>
+<p>同樣地，這裡也有一個符號的變化。</p>
 <p><span>Previously, this was a negative sign.</span></p>
+<p><span>在之前的式子裡，這裡是負號。</span></p>
 <p><span>And, here in summary form is the solution for the inverse kinematics of our two-link robot when it is in this particular configuration, where q2 is negative.</span></p>
-<p><span>Let’s compare the two solutions, the case where q2 is positive and the case where q2 is negative.</span></p><h1>Stage3-ag4</h1>
+<p><span>這是我們使用逆向運動學於雙連桿機構在此特定構造下的解，其中q2為負值</span></p>
+<p><span>Let’s compare the two solutions, the case where q2 is positive and the case where q2 is negative.</span></p>
+<p><span>讓我們在q2為正以及q2為負的情況下進行兩種解法的比較。</span></p><h1>Stage3-ag4</h1>
 <p>題目依照Stage2繼續製作，期望它能站立行走，並可鍵盤控制。</p>
 <h2>更改1</h2>
 <p>覺得四隻腳支點不夠站不起來，故仿造老師的jansen_walker設計為8隻腳。</p>
