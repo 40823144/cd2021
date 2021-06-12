@@ -122,7 +122,7 @@ img.add_border {
                             <li><a href="./../blog/index.html">blog</a></li>
                         </ul>
                       </li>
-                     <li class='has-children'><a href='About.html'>About</a><ul class='dropdown'><li><a href='csave.html'>csave</a></li></ul><li><a href='CMSiMDE.html'>CMSiMDE</a><li class='has-children'><a href='W2~W4.html'>W2~W4</a><ul class='dropdown'><li><a href='組員.html'>組員</a><li><a href='W3.html'>W3</a></li></ul><li class='has-children'><a href='W5~W9.html'>W5~W9</a><ul class='dropdown'><li><a href='組員：.html'>組員：</a><li><a href='W5.html'>W5</a><li><a href='W6.html'>W6</a><li><a href='W7.html'>W7</a><li><a href='W8.html'>W8</a><li><a href='成品：.html'>成品：</a></li></ul><li class='has-children'><a href='W10~W17.html'>W10~W17</a><ul class='dropdown'><li><a href='RoboDK.html'>RoboDK</a><li class='has-children'><a href='Task.html'>Task</a><ul class='dropdown'><li><a href='task1.html'>task1</a><li><a href='task2.html'>task2</a></li></li></ul></ul><li class='has-children'><a href='Stage3-ag4.html'>Stage3-ag4</a><ul class='dropdown'><li><a href='更改1.html'>更改1</a></li></ul><li><a href='英文學習中.html'>英文學習中</a><li><a href='CoppeliaSim.html'>CoppeliaSim</a><li><a href='ssh.html'>ssh</a><li><a href='heroku.html'>heroku</a><li><a href='DC推廣中心.html'>DC推廣中心</a></li>
+                     <li class='has-children'><a href='About.html'>About</a><ul class='dropdown'><li><a href='csave.html'>csave</a></li></ul><li><a href='CMSiMDE.html'>CMSiMDE</a><li class='has-children'><a href='W2~W4.html'>W2~W4</a><ul class='dropdown'><li><a href='組員.html'>組員</a><li><a href='W3.html'>W3</a></li></ul><li class='has-children'><a href='W5~W9.html'>W5~W9</a><ul class='dropdown'><li><a href='組員：.html'>組員：</a><li><a href='W5.html'>W5</a><li><a href='W6.html'>W6</a><li><a href='W7.html'>W7</a><li><a href='W8.html'>W8</a><li><a href='成品：.html'>成品：</a></li></ul><li class='has-children'><a href='W13~W14.html'>W13~W14</a><ul class='dropdown'><li><a href='RoboDK.html'>RoboDK</a><li class='has-children'><a href='Task.html'>Task</a><ul class='dropdown'><li><a href='task1.html'>task1</a><li><a href='task2.html'>task2</a></li></li></ul></ul><li><a href='W15.html'>W15</a><li class='has-children'><a href='Stage3-ag4.html'>Stage3-ag4</a><ul class='dropdown'><li><a href='更改1.html'>更改1</a></li></ul><li><a href='英文學習中.html'>英文學習中</a><li><a href='CoppeliaSim.html'>CoppeliaSim</a><li><a href='ssh.html'>ssh</a><li><a href='heroku.html'>heroku</a><li><a href='DC推廣中心.html'>DC推廣中心</a></li>
                       </ul>
                 </nav>
               </div>
@@ -133,7 +133,74 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">成品： << <a href='成品：.html'>Previous</a> <a href='RoboDK.html'>Next</a> >> RoboDK<br /><h1>W10~W17</h1><br />成品： << <a href='成品：.html'>Previous</a> <a href='RoboDK.html'>Next</a> >> RoboDK</div>
+    <div id="tipue_search_content">task2 << <a href='task2.html'>Previous</a> <a href='Stage3-ag4.html'>Next</a> >> Stage3-ag4<br /><h1>W15</h1>
+<p>影片字幕翻譯</p>
+<h4 class="title style-scope ytd-video-primary-info-renderer"><yt-formatted-string class="style-scope ytd-video-primary-info-renderer" force-default-style="">1.Inverse kinematics for a 2-joint robot arm using geometry</yt-formatted-string></h4>
+<p><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/IKOGwoJ2HLk" width="560"></iframe></p>
+<p><span>We saw this simple two-link robot in the previous lecture about forward kinematics.</span></p>
+<p><span>我們在先前關於正向運動學的講座中看到了這個簡單的雙連桿機構。</span></p>
+<p><span>The tooltip pose of the robot is simply described by two numbers, coordinates x and y is relative to the world coordinate system.</span></p>
+<p><span>這個工具軟件姿勢是由兩個數字簡單描述的，相對於絕對坐標系的x和y。</span></p>
+<p><span>So, the problem here is that given x and y, we want to determine the joined angles, q1 and q2.</span></p>
+<p>所以，這裡的問題是當我們給定了x和y，要如呵得出我們想連接的角度，即q1和q2。</p>
+<p><span>The solution that we’re going to follow in this particular section is a geometric one.</span></p>
+<p><span>我們在這個特殊部分的解決方案須遵循其中一種幾何學。</span></p>
+<p><span>We’re going to start with a simple piece of construction.</span></p>
+<p><span>我們將從一個簡單的結構開始。</span></p>
+<p><span>We’re going to overlay the red triangle on top of our robot.</span></p>
+<p><span>我們假定將一個紅色的三角形覆蓋於我們的機構上。</span></p>
+<p><span>We know that the end point coordinate is x, y, so the vertical height of the triangle is y, the horizontal width is x.</span></p>
+<p><span>我們知道端點座標為x和y，因此三角形的垂直高度為y，水平寬度為x。</span></p>
+<p><span>And, using Pythagoras theorem, we can write r squared equals x squared plus y squared.</span></p>
+<p><span>並且，利用畢氏定理，我們可得出r的平方 = x的平方 + y的平方。</span></p>
+<p><span>So far, so easy.</span></p>
+<p><span>到目前為止，都很容易。</span></p>
+<p>Now, we’re going to look at this triangle highlighted here in red and we want to determine</p>
+<p>the angle alpha.</p>
+<p><span>In order to do that, we need to use the cosine rule.</span></p>
+<p><span>And, if you’re a little rusty on the cosine rule, here is a bit of a refresher.</span></p>
+<p><span>We have an arbitrary triangle.</span></p>
+<p><span>We don’t have any right angles in it and we’re going to label the length of this edge as A and the angle opposite that edge, we’re going to label as little a.</span></p>
+<p><span>And, we do the same for this edge and this angle, and this edge and this angle.</span></p>
+<p><span>So, all together, the sides are labelled capitals A, B and C, and the angles are labelled little a, little b, and little c.</span></p>
+<p><span>So, the cosine rule is simply this relationship here.</span></p>
+<p><span>It’s a bit like Pythagoras’ theorem except for this extra term on the end with the cos a in it.</span></p>
+<p><span>Now, let’s apply the cosine rule to the particular triangle we looked at a moment ago.</span></p>
+<p><span>It’s pretty straightforward to write down this particular relationship.</span></p>
+<p><span>We can isolate the term cos alpha which gives us the angle alpha that we’re interested in.</span></p>
+<p><span>And, it’s defined in terms of the constant link lengths, A1 and A2 and the position of the end effector, x and y.</span></p>
+<p><span>We can write this simple relationship between the angles alpha and q2.</span></p>
+<p><span>And, we know from the shape of the cosine function that cos of q2 must be equal to negative of cos alpha.</span></p>
+<p><span>This time, let’s just write an expression for the cosine of the joined angle q2.</span></p>
+<p><span>Now, we’re going to draw yet another red triangle and we’re going apply some simple trigonometry here.</span></p>
+<p><span>If we know q2, then we know this length and this length of the red triangle.</span></p>
+<p><span>We can write this relationship for the sine of the joined angle q2.</span></p>
+<p><span>Now, we can consider this bigger triangle whose angle is beta and this side length of this triangle is given here in blue.</span></p>
+<p><span>And, the length of the other side of the triangle is this.</span></p>
+<p><span>So, now we can write an expression for the angle beta in terms of these parameters here.</span></p>
+<p><span>Going back to the red triangle that we drew earlier, we can establish a relationship between q1 and the angle beta.</span></p>
+<p><span>Introduce yet another angle, this one gamma and we can write a relationship between the angle gamma and the tooltip coordinates x and y.</span></p>
+<p><span>Now, we can write a simple relationship between the angles that we’ve constructed, gamma and beta and the joined angle we’re interested in which is q1.</span></p>
+<p><span>And, the total relationship looks something like this.</span></p>
+<p><span>Quite a complex relationship, it gives us the angle of joined one, that’s q1 in terms of the end effector coordinates y and x, and a bunch of constants, a1 and a2, and it’s also a function of the second joint angle, q2.</span></p>
+<p><span>So, let’s summarize what it is that we have derived here.</span></p>
+<p><span>We have an expression for the cosine of q2 and we have an expression for q1.</span></p>
+<p><span>Now, the cosine function is symmetrical about 0.</span></p>
+<p><span>So, if we know the value of the cosine of q2, then there are two possible solutions a positive angle and a negative angle.</span></p>
+<p><span>We’re going to explicitly choose the positive angle. Which means that I can write this expression here.</span></p>
+<p><span>And now, we have what we call the inverse kinematic solution for this two-link robot.</span></p>
+<p>We have an expression for the two joined angles, q1 and q2 in terms of the end effector pose x and y, and a bunch of constants.</p>
+<p><span>You notice that the two equations are not independent.</span></p>
+<p><span>The equation for q1, in fact, depends on the solution for q2.</span></p>
+<p><span>In this case, q2 is negative and we’re going to write the solution for q2 with a negative sign in front of the inverse cosine.</span></p>
+<p><span>Now, we need to solve for q1, so we’re going to introduce this particular red triangle, the angle beta that we solved previously, and the angle gamma which is defined in terms of y and x.</span></p>
+<p><span>Now, we write a slightly different relationship between q1, gamma and beta, different to what we had before.</span></p>
+<p><span>There’s a change of sign involved.</span></p>
+<p><span>Then, we can substitute all that previous equation and come up with this expression for q1.</span></p>
+<p><span>Again, there is a change of sign here.</span></p>
+<p><span>Previously, this was a negative sign.</span></p>
+<p><span>And, here in summary form is the solution for the inverse kinematics of our two-link robot when it is in this particular configuration, where q2 is negative.</span></p>
+<p><span>Let’s compare the two solutions, the case where q2 is positive and the case where q2 is negative.</span></p><br />task2 << <a href='task2.html'>Previous</a> <a href='Stage3-ag4.html'>Next</a> >> Stage3-ag4</div>
         
     <!-- footer -->
       <div class="container">

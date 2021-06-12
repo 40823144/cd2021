@@ -70,7 +70,7 @@
 <p><img alt="" height="590" src="/images/cad零件表.jpg" width="859"/></p>
 <p>立體圖：</p>
 <p><img alt="" height="700" src="/images/立體圖2.jpg" width="800"/></p>
-<h1>W10~W17</h1><h2>RoboDK</h2>
+<h1>W13~W14</h1><h2>RoboDK</h2>
 <p>單純的改了一 些數字，讓它可以來回。</p>
 <p><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/sY0XpQhpivs" width="560"></iframe></p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># KMOLab Portable RoboDK pick and place
@@ -474,11 +474,23 @@ if errorCode == -1:
     sys.exit()
  
 errorCode=vrep.simxSetJointTargetVelocity(clientID,Revolute_joint,3, vrep.simx_opmode_oneshot_wait)</pre>
-<p></p>
-<h1>Stage3-ag4</h1>
+<h1>W15</h1>
+<p>影片字幕翻譯</p>
+<h4 class="title style-scope ytd-video-primary-info-renderer"><yt-formatted-string class="style-scope ytd-video-primary-info-renderer" force-default-style="">1.Inverse kinematics for a 2-joint robot arm using geometry</yt-formatted-string></h4>
+<p><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/IKOGwoJ2HLk" width="560"></iframe></p>
+<p><span>We saw this simple two-link robot in the previous lecture about forward kinematics.</span></p>
+<p><span>我們在先前關於正向運動學的講座中看到了這個簡單的雙連桿機構。</span></p>
+<p><span>The tooltip pose of the robot is simply described by two numbers, coordinates x and y is relative to the world coordinate system.</span></p>
+<p><span>這個工具軟件姿勢是由兩個數字簡單描述的，相對於絕對坐標系的x和y。</span></p>
+<p><span>So, the problem here is that given x and y, we want to determine the joined angles, q1 and q2.</span></p>
+<p>所以，這裡的問題是當我們給定了x和y，要如呵得出我們想連接的角度，即q1和q2。</p>
+<p></p><h1>Stage3-ag4</h1>
 <p>題目依照Stage2繼續製作，期望它能站立行走，並可鍵盤控制。</p>
 <h2>更改1</h2>
-<p></p><h1>英文學習中</h1>
+<p>覺得四隻腳支點不夠站不起來，故仿造老師的jansen_walker設計為8隻腳。</p>
+<p><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/bKECNeiFdQ8" width="560"></iframe></p>
+<p>8腳模擬</p>
+<p><img alt="" height="341" src="/images/8腳獸.gif" width="640"/></p><h1>英文學習中</h1>
 <p>API = Application Programming Interface 應用程式介面</p>
 <p>simulator 模擬器</p>
 <p>hierarchy 層次結構</p>
