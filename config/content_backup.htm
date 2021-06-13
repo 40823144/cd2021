@@ -588,7 +588,15 @@ errorCode=vrep.simxSetJointTargetVelocity(clientID,Revolute_joint,3, vrep.simx_o
 <p><span>這是我們使用逆向運動學於雙連桿機構在此特定構造下的解，其中q2為負值</span></p>
 <p><span>Let’s compare the two solutions, the case where q2 is positive and the case where q2 is negative.</span></p>
 <p><span>讓我們在q2為正以及q2為負的情況下進行兩種解法的比較。</span></p>
-<h1><span>W16</span></h1><h1>Stage3-ag4</h1>
+<h1>W16</h1>
+<h4>MTB_robot 的取放方塊流程規劃</h4>
+<h4>1. Onshape 零組件繪製</h4>
+<p><a href="https://cad.onshape.com/documents/3c4bc42c400e1a83c9952c47/w/ba4bf0f7df4bfc9b1b041a54/e/19f82178aa4077f04fbb66ab">Onshape</a></p>
+<h4>2. 建立 CoppeliaSim 4.1.0 MTB robot 場景</h4>
+<p><a href="https://drive.google.com/file/d/192pOaVC0Yaf5nxmtq2Y1MEt8TLIRUBdb/view?usp=sharing" title="雲端Google Drive">雲端<span>Google Drive</span></a></p>
+<h4>3. 手臂末端加入 components-gripper-suction pad 吸盤 (20%)</h4>
+<h4>4. 逆向運動學函式 (20%)</h4>
+<h4>5. Python remote API 逆向運動學函式 (20%)</h4><h1>Stage3-ag4</h1>
 <p>題目依照Stage2繼續製作，期望它能站立行走，並可鍵盤控制。</p>
 <h2>更改1</h2>
 <p>覺得四隻腳支點不夠站不起來，故仿造老師的jansen_walker設計為8隻腳。</p>
