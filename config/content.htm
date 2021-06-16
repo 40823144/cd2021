@@ -588,7 +588,41 @@ errorCode=vrep.simxSetJointTargetVelocity(clientID,Revolute_joint,3, vrep.simx_o
 <p><span>這是我們使用逆向運動學於雙連桿機構在此特定構造下的解，其中q2為負值</span></p>
 <p><span>Let’s compare the two solutions, the case where q2 is positive and the case where q2 is negative.</span></p>
 <p><span>讓我們在q2為正以及q2為負的情況下進行兩種解法的比較。</span></p>
-<h1>W16</h1>
+<p><span>-------------------------------------------------------------------------------------------------------</span></p>
+<h4><span>2.</span><yt-formatted-string class="style-scope ytd-video-primary-info-renderer" force-default-style="">Inverse kinematics for a 2-joint robot arm using algebra</yt-formatted-string></h4>
+<p><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/eIZuz1XCd0w" width="560"></iframe></p>
+<p><span>Here we have the same two link robot as we just looked at but this time we're going tosolve it using an analytical approach , that is we're going to rely much more on algebra ,particular linear algebra rather than geometry .</span></p>
+<p><span>這裡我們有一個和剛才一樣的二連桿機構，但這次我們要用分析的方法來解決它，也就是說我們要更加的依靠代數，特別是線性代數而不是幾何。</span></p>
+<p><span>We have an expression E , which is the homogeneous transformation which represents the pose of the robots endefector and we looked at this in the last lecture , we can write the endefector pose as a sequence of elementary homogeneous transformations .</span></p>
+<p><span>我們有一個表達式E，它表示連桿末端執行器姿勢的齊次轉換，我們在上一節課看了這個表達式，我們可以把末端執行器的姿勢寫成基本其次轉換的序列。</span></p>
+<p><span>A rotation by Q1 , a translation along the X direction by A1 , a rotation by Q2 and then a translation in the X direction by A2 .</span></p>
+<p><span>透過旋轉q1，使a1沿x方向平移，透過旋轉q2，使a2沿x方向平移。</span></p>
+<p><span>If I expand this out , multiply all the transformations together , I get the expression shown here ; a three by three homogeneous transformation matrix representing the pose of the robot's endefector.</span></p>
+<p><span>如果我將其展開，把所有轉換式乘在一起，我得到的表達式如圖所示；一個3x3的齊次轉換矩陣，它代表著末端執行器的姿勢。</span></p>
+<p><span>Now for this particular two link robot , we are only interested in the position of its endefector , it's X and Y co - ordinate and they are these two elements within the homogeneous transformation matrix , so I'm going to copy those out .</span></p>
+<p><span>現在，對於這個特定的二連桿機構，我們只關注其端點位置，就是其x和y的座標，它們是齊次轉換矩陣中的兩個元素，所以我要將它們複製出來。</span></p>
+<p><span>So here again is our expression for X and Y and what we're going to do is a fairly common trick , we're going to square and add these two equations and I get a relationship that looks like this .</span></p>
+<p><span>所以這裡又是我們x和y的表達式，我們要做一個相當常見的技巧，我們要將這兩個方程平方相加，然後我會得到看起來像這樣的關係式。</span></p>
+<p><span>Now I can solve for the joint angle Q2 in terms of the endefector pose X and Y and the robot's constants A1 and A2.</span></p>
+<p><span>現在我可以根據端點位置x和y及機構的常數a1和a2為條件列式求解關節角度q2。</span></p>
+<p><span>Now what I'm going to do is apply the sum of angles identity .</span></p>
+<p><span>現在我要應用的是角之和的特性。</span></p>
+<p><span>I'm going to expand these terms, sine of Q1 plus Q2 or cos of Q1 plus Q2 and to make life a little bit easier, I'm going to make some substations, so where ever I had cos Q2, I'm going to write C2 and where ever I had sine Q2, I'm going to write S2.</span></p>
+<p><span>我將這些項展開，q1加q2的正弦或q1加q2的餘弦，為了讓式子更容易一些，我將做一些變化，所以在我有cosq2的地方，換寫上C2，在有sinq2的地方，換寫上S2。</span></p>
+<p><span>It's a fairly common shorthand when people are looking at robot kinematic equations.</span></p>
+<p><span>這是一個當人們看到機器運動學方程式的時候，相當常見的速記法。</span></p>
+<p><span>And here are the equations after making those substitutions.</span></p>
+<p>下面是進行這些替換後的方程式。</p>
+<p>Looking at these two equations, I can see that they fall into a very well known form and for that form there is a very well known solution.</p>
+<p>觀察這兩個方程，我們可以發現它們屬於一個非常知名的形式，對於這個形式有一個非常知名的解決方案。</p>
+<p><span>So I'm going to consider just one of the equations, the equation for Y and using our well known identity and it's solution, I can determine the values for the variables little a, little b and little c and once l've determined those, then I can just write down the solution for Q1, which x is the equivalent of theta in this particular case.</span></p>
+<p><span>所以我只考慮其中一個方程，即y的方程，利用我們眾所皆知的特性和它的解，我可以確定變量a,b,c的值，一但我確定了這些值，那麼我就可以寫出q1的解，在這個特定情況下，x相當於θ的值。</span></p>
+<p><span>Here again is our expression for Q1, copied over from the previous slide and we may remember from earlier in our workings that we determined this particular relationship; X squared plus Y squared is equal to this particular complex expression.</span></p>
+<p><span>這裡又是我們對q1的表達式，從上一張幻燈片複製過來的，我們可能還記得在早期的說明中，確定了這種特殊的關係，x的平方加上y的平方等於這個特殊的複合表達式。</span></p>
+<p><span>So I can substitute that in and do some simplification and I end up with this slightly less complex expression for Q1.</span></p>
+<p><span>因此，我可以將其帶入並做一些簡化，最後得到這個比較不那麼複雜的表達式q1。</span></p>
+<p><span>And it is the same expression that I got following the geometric approach in the previous section.</span></p>
+<p><span>而這也是我在上一節中按照幾何方法所得到的表達式。</span></p><h1>W16</h1>
 <h4>MTB_robot 的取放方塊流程規劃</h4>
 <h4>1. Onshape 零組件繪製 (20%)</h4>
 <p><a href="https://cad.onshape.com/documents/3c4bc42c400e1a83c9952c47/w/ba4bf0f7df4bfc9b1b041a54/e/19f82178aa4077f04fbb66ab">Onshape</a></p>
