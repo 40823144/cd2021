@@ -632,8 +632,147 @@ errorCode=vrep.simxSetJointTargetVelocity(clientID,Revolute_joint,3, vrep.simx_o
 <h4>4. 逆向運動學函式 (20%)</h4>
 <p>程式迴圈控制</p>
 <p><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/Zcd9hCfmLnk" width="560"></iframe></p>
+<p>程式碼</p>
+<pre class="brush:lua;auto-links:false;toolbar:false" contenteditable="false">function moving(x,y)
+    a=0.400 
+    b=0.400
+    c=math.pow(math.pow(x,2)+math.pow(y,2),0.5)
+    s=(a+b+c)/2
+    area=math.pow((s*(s-a)*(s-b)*(s-c)),0.5)
+    h=area/(2*c)
+    deg1_base=math.atan(x/y)
+    if x&lt;0 and y&lt;0 then
+        deg1_base=deg1_base+math.pi
+    end
+    deg1_tri=math.asin(h/a)
+    deg1=deg1_base+deg1_tri
+    deg2=math.pi-(0.5*math.pi-deg1_tri)-math.acos(h/b)
+    deg3=deg2-deg1
+    sim.setJointTargetPosition(joint01,deg1)
+    sim.setJointTargetPosition(joint02,-deg2)
+    sim.setJointTargetPosition(joint03,deg3)
+    
+end
+
+function sysCall_threadmain()
+    joint01=sim.getObjectHandle('joint1')
+    joint02=sim.getObjectHandle('joint2')
+    joint03=sim.getObjectHandle('joint3')
+    jointz=sim.getObjectHandle('jointz')
+    sim.setJointTargetPosition(joint01,0)
+    sim.setJointTargetPosition(joint02,0)
+    sim.setJointTargetPosition(joint03,0)
+    sim.setJointTargetPosition(jointz,0)
+    sim.setIntegerSignal("pad_switch",1)
+    sim.setJointTargetPosition(jointz,-0.03)
+    sim.wait(2)
+    sim.setJointTargetPosition(jointz,0)
+     while sim.getSimulationState()~=sim.simulation_advancing_abouttostopre do
+        moving(0.03,0.7)
+        sim.wait(2)
+        sim.setIntegerSignal("pad_switch",0)
+        sim.wait(2)
+        sim.setIntegerSignal("pad_switch",1)
+        sim.setJointTargetPosition(jointz,-0.03)
+        sim.wait(2)
+        sim.setJointTargetPosition(jointz,0)
+        sim.wait(2)
+        moving(-0.3,-0.55)
+        sim.wait(2)
+        sim.setIntegerSignal("pad_switch",0)
+        sim.wait(2)
+        sim.setIntegerSignal("pad_switch",1)
+        sim.setJointTargetPosition(jointz,-0.03)
+        sim.wait(2)
+        sim.setJointTargetPosition(jointz,0)
+        sim.wait(2)
+        moving(0.1,0.55)
+        sim.wait(2)
+        sim.setIntegerSignal("pad_switch",0)
+        sim.wait(2)
+        sim.setIntegerSignal("pad_switch",1)
+        sim.setJointTargetPosition(jointz,-0.03)
+        sim.wait(2)
+        sim.setJointTargetPosition(jointz,0)
+        sim.wait(2)
+        moving(0,0.8)
+        sim.wait(2)
+        sim.setIntegerSignal("pad_switch",0)
+        sim.wait(2)
+        sim.setIntegerSignal("pad_switch",1)
+        sim.setJointTargetPosition(jointz,-0.03)
+        sim.wait(2)
+        sim.setJointTargetPosition(jointz,0)
+        sim.wait(2)
+    end
+end</pre>
 <p>鍵盤控制</p>
 <p><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/FHEGvNOl0Wg" width="560"></iframe></p>
+<h4>程式碼</h4>
+<pre class="brush:lua;auto-links:false;toolbar:false" contenteditable="false">function sysCall_init()
+    joint1=sim.getObjectHandle('joint1')
+    joint2=sim.getObjectHandle('joint2')
+    joint3=sim.getObjectHandle('joint3')
+    jointz=sim.getObjectHandle('jointz')
+    sim.setJointTargetPosition(joint1,0)
+    sim.setJointTargetPosition(joint2,0)
+    sim.setJointTargetPosition(joint3,0)
+    sim.setJointTargetPosition(jointz,0)
+    deg1=0
+    deg2=0
+    deg3=0
+end
+
+function sysCall_actuation()
+    message,auxiliaryData=sim.getSimulatorMessage()
+    while message~=-1 do
+        if (message==sim.message_keypress) then
+            if (auxiliaryData[1]==97) then
+            deg1=deg1+1
+            deg3=deg2-deg1
+            sim.setJointTargetPosition(joint1,deg1*math.pi/180)
+            end
+            if (auxiliaryData[1]==100) then
+            deg1=deg1-1
+            deg3=deg2-deg1
+            sim.setJointTargetPosition(joint1,deg1*math.pi/180)
+            end
+            if (auxiliaryData[1]==119) then
+            deg2=deg2+1
+            deg3=deg1-deg2
+            sim.setJointTargetPosition(joint2,deg2*math.pi/180)
+            end
+            if (auxiliaryData[1]==115) then
+            deg2=deg2-1
+            deg3=deg1-deg2
+            sim.setJointTargetPosition(joint2,deg2*math.pi/180)
+            end
+            if (auxiliaryData[1]==2008) then
+                sim.setJointTargetPosition(jointz,-0.03)
+                sim.setIntegerSignal("pad_switch",1)
+            end
+            if(auxiliaryData[1]==2007) then
+                sim.setJointTargetPosition(jointz,0)
+            end
+            if(auxiliaryData[1]==32) then
+                sim.setIntegerSignal("pad_switch",0)
+            end
+            sim.setJointTargetPosition(joint3,deg3*math.pi/180)
+        end
+    message,auxiliaryData=sim.getSimulatorMessage()
+    end
+end
+
+function sysCall_sensing()
+    -- put your sensing code here
+end
+
+function sysCall_cleanup()
+    -- do some clean-up here
+end
+
+-- See the user manual or the available code snippets for additional callback functions and details
+</pre>
 <h4>5. Python remote API 逆向運動學函式 (20%)</h4>
 <p><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/mTHtlNSZ6Wc" width="560"></iframe></p>
 <p></p><h1>Stage3-ag4</h1>
