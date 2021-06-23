@@ -63,13 +63,13 @@
 <h2>W8</h2>
 <p>外型大改造並且使四足模擬成功。</p>
 <p><iframe allowfullscreen="allowfullscreen" height="400" src="//www.youtube.com/embed/jNLPmJR2iNI" width="700"></iframe></p><h2>成品：</h2>
+<p>GD:<a href="https://drive.google.com/file/d/1KrfCVJ-3fV_9pVjZtVFs9oi_J_-IHgSs/view?usp=sharing">ttt檔</a></p>
 <p>模擬影片：</p>
 <p><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/jNLPmJR2iNI" width="560"></iframe></p>
 <p>零件圖：</p>
 <p><img alt="" height="590" src="/images/cad零件表.jpg" width="859"/></p>
 <p>立體圖：</p>
-<p><img alt="" height="700" src="/images/立體圖2.jpg" width="800"/></p>
-<h1>W13~W14</h1><h2>RoboDK</h2>
+<p><img alt="" height="700" src="/images/立體圖2.jpg" width="800"/></p><h1>W13~W14</h1><h2>RoboDK</h2>
 <p>單純的改了一 些數字，讓它可以來回。</p>
 <p><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/sY0XpQhpivs" width="560"></iframe></p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># KMOLab Portable RoboDK pick and place
@@ -775,13 +775,94 @@ end
 </pre>
 <h4>5. Python remote API 逆向運動學函式 (20%)</h4>
 <p><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/mTHtlNSZ6Wc" width="560"></iframe></p>
+<p>程式碼</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">import sim as vrep
+import math
+import random
+import time
+import math
+
+def moving(x,y):
+    a=0.400
+    b=0.400
+    c=math.pow(math.pow(x,2)+math.pow(y,2),0.5)
+    s=(a+b+c)/2
+    area=math.pow((s*(s-a)*(s-b)*(s-c)),0.5)
+    h=area/(2*c)
+    deg1_base=math.atan(x/y)
+    if x&lt;0 and y&lt;0 :
+        deg1_base=deg1_base+math.pi
+    deg1_tri=math.asin(h/a)
+    deg1=deg1_base+deg1_tri
+    deg2=math.pi-(0.5*math.pi-deg1_tri)-math.acos(h/b)
+    deg3=deg2-deg1
+    vrep.simxSetJointTargetPosition(clientID,joint01, deg1,opmode)
+    vrep.simxSetJointTargetPosition(clientID,joint02, -deg2,opmode)
+    vrep.simxSetJointTargetPosition(clientID,joint03, deg3,opmode)
+
+
+print('start')
+
+vrep.simxFinish(-1)
+ 
+clientID = vrep.simxStart('127.0.0.1', 19999, True, True, 5000, 5)
+ 
+if clientID!= -1:
+    print("Connected to remote API server")
+    
+    res=vrep.simxAddStatusbarMessage(
+        clientID,"40823144",
+        vrep.simx_opmode_oneshot)
+    if res not in (vrep.simx_return_ok,vrep.simx_return_novalue_flag):
+        print("could not add a message to the status bar.")
+        
+        
+    opmode=vrep.simx_opmode_oneshot_wait
+    STREAMING=vrep.simx_opmode_streaming
+    
+    vrep.simxStartSimulation(clientID,opmode)
+    ret,joint01=vrep.simxGetObjectHandle(clientID,"joint1",opmode)
+    ret,joint02=vrep.simxGetObjectHandle(clientID,"joint2",opmode)
+    ret,joint03=vrep.simxGetObjectHandle(clientID,"joint3",opmode)
+    ret,jointz=vrep.simxGetObjectHandle(clientID,"jointz",opmode)
+    
+    vrep.simxSetJointTargetPosition(clientID,joint01,0,opmode)
+    vrep.simxSetJointTargetPosition(clientID,joint02,0,opmode)
+    vrep.simxSetJointTargetPosition(clientID,joint03,0,opmode)
+    vrep.simxSetIntegerSignal(clientID,"pad_switch",1,opmode)
+    vrep.simxSetJointTargetPosition(clientID,jointz,-0.03,opmode)
+    time.sleep(1)
+    vrep.simxSetJointTargetPosition(clientID,jointz,0,opmode)
+    while True:
+        moving(0.2,0.7)
+        time.sleep(1)
+        vrep.simxSetIntegerSignal(clientID,"pad_switch",0,opmode)
+        time.sleep(1)
+        vrep.simxSetIntegerSignal(clientID,"pad_switch",1,opmode)
+        vrep.simxSetJointTargetPosition(clientID,jointz,-0.03,opmode)
+        time.sleep(1)
+        vrep.simxSetJointTargetPosition(clientID,jointz,0,opmode)
+        moving(-0.3,-0.55)
+        time.sleep(1)
+        vrep.simxSetIntegerSignal(clientID,"pad_switch",0,opmode)
+        time.sleep(1)
+        vrep.simxSetIntegerSignal(clientID,"pad_switch",1,opmode)
+        vrep.simxSetJointTargetPosition(clientID,jointz,-0.03,opmode)
+        time.sleep(1)
+        vrep.simxSetJointTargetPosition(clientID,jointz,0,opmode)</pre>
 <p></p><h1>Stage3-ag4</h1>
 <p>題目依照Stage2繼續製作，期望它能站立行走，並可鍵盤控制。</p>
 <h2>更改1</h2>
 <p>覺得四隻腳支點不夠站不起來，故仿造老師的jansen_walker設計為8隻腳。</p>
 <p><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/bKECNeiFdQ8" width="560"></iframe></p>
 <p>8腳模擬</p>
-<p><img alt="" height="341" src="/images/8腳獸.gif" width="640"/></p><h1>英文學習中</h1>
+<p><img alt="" height="341" src="/images/8腳獸.gif" width="640"/></p>
+<h2>模擬問題</h2>
+<p>經過多次測試後仍然站不起來的模擬影片集中處</p>
+<p>影片1</p>
+<p><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/h8WQysokPzA" width="560"></iframe></p>
+<p>影片2</p>
+<p><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/chYF4TlO8dU" width="560"></iframe></p><h1>英文學習中</h1>
 <p>API = Application Programming Interface 應用程式介面</p>
 <p>simulator 模擬器</p>
 <p>hierarchy 層次結構</p>
@@ -840,6 +921,7 @@ end
 <p><img alt="" height="60" src="/images/heroku4.png" width="380"/></p>
 <p><img alt="" height="425" src="/images/heroku5.png" width="800"/></p>
 <h1>DC推廣中心</h1>
+<p>官方網址：<a href="https://discord.com/">https://discord.com/</a></p>
 <p>全名為Discord，<span>是一款專為社群設計的免費網路即時通話軟體與數位發行平台。</span></p>
 <p><span><img alt="" height="140" src="/images/unnamed.png" width="140"/></span></p>
 <p>因為目前疫情爆發的緣故，所以準備了除了Google meeting以外的通訊軟體以備不時之需。</p>
