@@ -133,35 +133,9 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">task1 << <a href='task1.html'>Previous</a> <a href='W15.html'>Next</a> >> W15<br /><h1>task2</h1>
-<p>參考老師的bubbleRob模板並於Stage2上進行remoteAPI的模擬。</p>
-<p><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/FOt8QA5ReCo" width="560"></iframe></p>
-<p><a href="https://drive.google.com/file/d/1GGBcXba0aOhc9D_rL-ZdC1fKSc_8pPC6/view?usp=sharing">stage2-ttt檔</a></p>
-<p><span>remoteAPI程式碼</span></p>
-<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">import sim as vrep
-import sys
-# child threaded script: 
-#simExtRemoteApiStart(19999)
- 
-vrep.simxFinish(-1)
- 
-clientID = vrep.simxStart('127.0.0.1', 19999, True, True, 5000, 5)
- 
-if clientID!= -1:
-    print("Connected to remote server")
-else:
-    print('Connection not successful')
-    sys.exit('Could not connect')
- 
-errorCode,Revolute_joint=vrep.simxGetObjectHandle(clientID,'Revolute_joint',vrep.simx_opmode_oneshot_wait)
- 
- 
-if errorCode == -1:
-    print('Can not find left or right motor')
-    sys.exit()
- 
-errorCode=vrep.simxSetJointTargetVelocity(clientID,Revolute_joint,3, vrep.simx_opmode_oneshot_wait)</pre>
-<br />task1 << <a href='task1.html'>Previous</a> <a href='W15.html'>Next</a> >> W15</div>
+    <div id="tipue_search_content">CMSiMDE << <a href='CMSiMDE.html'>Previous</a> <a href='組員.html'>Next</a> >> 組員<br /><h1>Stage1-ag17</h1>
+<p>W2~W4為兩人一組，進行<span>協同題目選定討論。</span></p>
+<p><span>stage1-ag17<br/><span>題目：纜車</span><br/><span>動機：因為不想走路</span><br/><span>W2:繪製零件</span><br/><span>W3:使用Coppeliasim模擬動作並除錯</span><br/><span>W4:報告</span></span></p><br />CMSiMDE << <a href='CMSiMDE.html'>Previous</a> <a href='組員.html'>Next</a> >> 組員</div>
         
     <!-- footer -->
       <div class="container">
